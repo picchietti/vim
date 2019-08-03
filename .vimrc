@@ -6,9 +6,18 @@ endif
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
+" Dont backup to extra files
 set nobackup
 set nowritebackup
 set noswapfile
+
+" Add column with line numbers
+set number
+
+" Highlight current line number
+set cursorline
+hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+hi CursorLineNR cterm=bold
 
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
