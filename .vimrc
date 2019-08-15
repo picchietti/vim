@@ -19,6 +19,15 @@ set cursorline
 hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
 hi CursorLineNR cterm=bold
 
+" Show existing tab with 4 spaces width
+set tabstop=4
+" When indenting with '>', use 4 spaces width
+set shiftwidth=4
+" Convert tab to spaces when 'tab' is typed
+set expandtab
+" Group 4 spaces into a virtual tab
+set smarttab
+
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
