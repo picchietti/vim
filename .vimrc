@@ -27,6 +27,8 @@ set shiftwidth=4
 set expandtab
 " Group 4 spaces into a virtual tab
 set smarttab
+" Use indentation from current line for next line
+set autoindent
 
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
