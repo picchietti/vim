@@ -30,6 +30,17 @@ set smarttab
 " Use indentation from current line for next line
 set autoindent
 
+" Turn on code folding
+set foldenable
+" Fold by indentation. Also required for code folding
+set foldmethod=indent
+" Toggle folds with the spacebar
+nnoremap <space> za
+" Limit of how many folds can be nested in other folds
+set foldnestmax=6
+" How many lines of indent until code is auto folded when opening buffer
+set foldlevelstart=99
+
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
