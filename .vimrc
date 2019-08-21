@@ -41,6 +41,10 @@ set foldnestmax=6
 " How many lines of indent until code is auto folded when opening buffer
 set foldlevelstart=99
 
+" Swap the behavior of p and P
+nnoremap p P
+nnoremap P p
+
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
