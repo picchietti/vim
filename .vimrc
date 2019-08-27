@@ -11,6 +11,11 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" How many lines of command line history to keep.
+set history=9999
+" How many times "u" can be pressed.
+set undolevels=9999
+
 " Add column with line numbers
 set number
 
