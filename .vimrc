@@ -3,8 +3,8 @@ if v:progname =~? "evim"
   finish
 endif
 
-" Get the defaults that most users want.
-source $VIMRUNTIME/defaults.vim
+" https://github.com/vim/vim/blob/master/runtime/defaults.vim
+source ~/git/vim/defaults.vim
 
 " Dont backup to extra files
 set nobackup
