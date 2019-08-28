@@ -46,6 +46,9 @@ set foldnestmax=6
 " How many lines of indent until code is auto folded when opening buffer
 set foldlevelstart=99
 
+" Make ,b run :ls and :b to show a list of buffers to select from with b
+nnoremap ,b :ls<CR>:b!<space>
+
 " Swap the behavior of p and P
 nnoremap p P
 nnoremap P p
