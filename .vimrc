@@ -1,10 +1,17 @@
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
+" Use Vim instead of Vi settings.
+" Avoid side effects by loading first and not if already reset.
+if &compatible
+  set nocompatible
 endif
 
 " https://github.com/vim/vim/blob/master/runtime/defaults.vim
 source ~/git/vim/defaults.vim
+
+" Allow backspacing over everything in insert mode.
+set backspace=indent,eol,start
+
+" display completion matches in a status line
+set wildmenu
 
 " Dont backup to extra files
 set nobackup
@@ -46,6 +53,11 @@ set foldnestmax=6
 " How many lines of indent until code is auto folded when opening buffer
 set foldlevelstart=99
 
+" Enable the mouse to position the cursor, visually select, and scroll with the mouse.
+if has('mouse')
+  set mouse=a
+endif
+
 " Make ,b run :ls and :b to show a list of buffers to select from with b
 nnoremap ,b :ls<CR>:b!<space>
 
@@ -69,10 +81,6 @@ if has("autocmd")
   autocmd FileType text setlocal textwidth=78
 
   augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
