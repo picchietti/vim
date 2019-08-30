@@ -11,19 +11,21 @@ sudo apt install -y vim
 brew cask install macvim
 ```
 
-## Dependencies
+## Dependencies/Plugins
+### Plugins
+```bash
+git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
+git clone https://github.com/mileszs/ack.vim.git ~/.vim/bundle/ack.vim
+```
+
 ### Linux
 ```bash
 sudo apt-get install silversearcher-ag
-git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
-git clone https://github.com/mileszs/ack.vim.git ~/.vim/bundle/ack.vim
 ```
 
 ### MacOS
 ```bash
 brew install the_silver_searcher
-git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
-git clone https://github.com/mileszs/ack.vim.git ~/.vim/bundle/ack.vim
 ```
 
 ## Setup
