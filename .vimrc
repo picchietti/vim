@@ -9,10 +9,12 @@ source ~/git/vim/defaults.vim
 
 " From CtrlP install instructions: http://ctrlpvim.github.io/ctrlp.vim/#installation
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-" Use ag with CtrlP
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " A faster way to open CtrlP
 nnoremap ,p :CtrlP<CR>
+" If ag is installed, use it for CtrlP
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+endif
 
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
