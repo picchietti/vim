@@ -49,6 +49,12 @@ set cursorline
 hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
 hi CursorLineNR cterm=bold
 
+" display partial commands
+set showcmd
+" Don't timeout for partial commands. Especially useful when you are learning commands
+set notimeout
+set nottimeout
+
 " Show existing tab with 4 spaces width
 set tabstop=4
 " When indenting with '>', use 4 spaces width

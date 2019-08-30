@@ -3,11 +3,6 @@
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
 " Last change:	2019 Feb 18
 
-set showcmd		" display incomplete commands
-
-set ttimeout		" time out for key codes
-set ttimeoutlen=100	" wait up to 100ms after Esc for special key
-
 " Show @@@ in the last line if it is truncated.
 set display=truncate
 
@@ -24,11 +19,6 @@ endif
 " confusing.
 set nrformats-=octal
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries.
-if has('win32')
-  set guioptions-=t
-endif
-
 " Don't use Ex mode, use Q for formatting.
 " Revert with ":unmap Q".
 map Q gq
@@ -43,10 +33,6 @@ inoremap <C-U> <C-G>u<C-U>
 if &t_Co > 2 || has("gui_running")
   " Revert with ":syntax off".
   syntax on
-
-  " I like highlighting strings inside C comments.
-  " Revert with ":unlet c_comment_strings".
-  let c_comment_strings=1
 endif
 
 " Only do this part when Vim was compiled with the +eval feature.
