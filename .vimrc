@@ -10,7 +10,7 @@ source ~/git/vim/defaults.vim
 " From CtrlP install instructions: http://ctrlpvim.github.io/ctrlp.vim/#installation
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Use ag with CtrlP
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " A faster way to open CtrlP
 nnoremap ,p :CtrlP<CR>
 
