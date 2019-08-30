@@ -16,6 +16,15 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 endif
 
+" Run Ack plugin ack.vim
+set runtimepath^=~/.vim/bundle/ack.vim
+" A faster way to open Ack
+nnoremap ,a :Ack!<space>
+" If ag is installed, use it for ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
 
