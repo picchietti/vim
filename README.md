@@ -20,7 +20,7 @@ git clone https://github.com/mileszs/ack.vim.git ~/.vim/bundle/ack.vim
 
 ### Linux
 ```bash
-sudo apt-get install silversearcher-ag
+sudo apt install silversearcher-ag
 ```
 
 ### MacOS
