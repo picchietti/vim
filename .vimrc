@@ -7,8 +7,6 @@ endif
 " https://github.com/vim/vim/blob/master/runtime/defaults.vim
 source ~/git/vim/defaults.vim
 
-" From CtrlP install instructions: http://ctrlpvim.github.io/ctrlp.vim/#installation
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 " A faster way to open CtrlP
 nnoremap ,p :CtrlP<CR>
 " If ag is installed, use it for CtrlP
@@ -16,8 +14,6 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 endif
 
-" Run Ack plugin ack.vim
-set runtimepath^=~/.vim/bundle/ack.vim
 " A faster way to open Ack
 nnoremap ,a :Ack!<space>
 " If ag is installed, use it for ack.vim
