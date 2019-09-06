@@ -16,6 +16,7 @@ brew cask install macvim
 ```bash
 git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/pack/plugins/start/ctrlp.vim
 git clone https://github.com/mileszs/ack.vim.git ~/.vim/pack/plugins/start/ack.vim
+git clone https://github.com/dense-analysis/ale.git ~/.vim/pack/plugins/start/ale.vim
 ```
 
 ### Linux

@@ -7,6 +7,13 @@ endif
 " https://github.com/vim/vim/blob/master/runtime/defaults.vim
 source ~/git/vim/defaults.vim
 
+" Ale
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace']
+\}
+" Runs the fixers above when files are saved
+let g:ale_fix_on_save = 1
+
 " A faster way to open CtrlP
 nnoremap ,p :CtrlP<CR>
 " If ag is installed, use it for CtrlP
