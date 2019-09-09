@@ -1,14 +1,17 @@
 # Vim
+I'm venturing into the world of vim. Until I can decide between vim and neovim, you might see support for both.
 
 ## Installation
 ### Linux
 ```bash
 sudo apt install -y vim
+sudo apt install -y neovim
 ```
 
 ### MacOS
 ```bash
 brew cask install macvim
+brew install neovim
 ```
 
 ## Dependencies/Plugins
@@ -33,4 +36,9 @@ brew install the_silver_searcher
 Create a link from ~/.vimrc to git/vim/.vimrc
 ```bash
 ln -sT ~/.vimrc ~/git/vim/.vimrc
+```
+For neovim:
+```bash
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
 ```
