@@ -7,6 +7,10 @@ endif
 " https://github.com/vim/vim/blob/master/runtime/defaults.vim
 source ~/git/vim/defaults.vim
 
+" Add the one dark color scheme
+packadd! onedark.vim
+colorscheme onedark
+
 " Ale
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
