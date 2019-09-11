@@ -83,6 +83,10 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Reload file if changed externally
+" Trigger autoread with ":checktime"
+set autoread
+
 " How many lines of command line history to keep.
 set history=9999
 " How many times "u" can be pressed.
