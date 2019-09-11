@@ -141,6 +141,9 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" Words of affirmation
+autocmd BufWritePost * echo "Awesome contribution, Jon! You're a rockstar developer!"
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
