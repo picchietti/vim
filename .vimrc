@@ -7,6 +7,46 @@ endif
 " https://github.com/vim/vim/blob/master/runtime/defaults.vim
 source ~/git/vim/defaults.vim
 
+" Map mode
+let g:modeMap={
+\ 'n': 'NORMAL',
+\ 'v': 'VISUAL',
+\ 'i': 'INSERT',
+\ 'R': 'REPLACE',
+\ 's': 'SELECT',
+\ 't': 'TERMINAL',
+\ 'c': 'COMMAND',
+\ '!': 'SHELL',
+\}
+
+let b:gitbranch=""
+
+function! StatuslineGitBranch()
+  let b:gitbranch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+  let b:gitbranch = strlen(b:gitbranch) > 0?b:gitbranch:''
+endfunction
+
+augroup GetGitBranch
+  autocmd!
+  autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
+augroup END
+
+" Show status line
+set laststatus=2
+" Dont show mode. The status line will instead
+set noshowmode
+" Reset the status line
+set statusline=
+" Build the custom status line
+set statusline+=\ %m " Add modified status
+set statusline+=\ [%{g:modeMap[mode()]}] " Add mode
+set statusline+=\ [%f] " Add file name
+set statusline+=\ %l:%c " Add line:column position
+set statusline+=%= " Push content right
+set statusline+=\ [%{b:gitbranch}] " Add git branch name
+set statusline+=\ %y " Add file type
+set statusline+=\ [%{&ff}]\ " Add file format
+
 " Add the one dark color scheme
 packadd! onedark.vim
 colorscheme onedark
