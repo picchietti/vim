@@ -87,6 +87,9 @@ set noswapfile
 " Trigger autoread with ":checktime"
 set autoread
 
+" Trigger CursorHold after 200ms instead of 4s. Updates things like GitGutter at a reasonable rate.
+set updatetime=200
+
 " How many lines of command line history to keep.
 set history=9999
 " How many times "u" can be pressed.
