@@ -21,6 +21,19 @@ let g:modeMap={
 
 let b:gitbranch=""
 
+function! LinterStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+
+  return l:counts.total == 0 ? '' : printf(
+  \  ' [✗ %d ⚠ %d]',
+  \  all_errors,
+  \  all_non_errors
+  \)
+endfunction
+
 function! StatuslineGitBranch()
   let b:gitbranch = system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
   let b:gitbranch = strlen(b:gitbranch) > 0?b:gitbranch:''
@@ -41,6 +54,7 @@ set statusline=
 set statusline+=\ %m " Add modified status
 set statusline+=\ [%{g:modeMap[mode()]}] " Add mode
 set statusline+=\ [%f] " Add file name
+set statusline+=%{LinterStatus()} " Add linter status
 set statusline+=\ %l:%c " Add line:column position
 set statusline+=%= " Push content right
 set statusline+=\ [%{b:gitbranch}] " Add git branch name
@@ -57,6 +71,13 @@ let g:ale_fixers = {
 \}
 " Runs the fixers above when files are saved
 let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+highlight ALEError cterm=underline ctermbg=NONE ctermfg=9
+highlight ALEErrorSign ctermbg=NONE ctermfg=9
+highlight ALEWarning cterm=underline ctermbg=NONE ctermfg=227
+highlight ALEWarningSign ctermbg=NONE ctermfg=227
 
 " A faster way to open CtrlP
 nnoremap ,p :CtrlP<CR>
