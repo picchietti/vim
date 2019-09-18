@@ -167,6 +167,11 @@ nnoremap P p
 " Escape insert mode by typing 'jk'
 inoremap jk <Esc>
 
+" Move visual block up or down and change indent.
+" More handy for moving multiple lines than dd & p. Not as handy for moving a single line.
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
