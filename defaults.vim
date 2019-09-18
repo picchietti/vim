@@ -6,15 +6,6 @@
 " Show @@@ in the last line if it is truncated.
 set display=truncate
 
-" Show a few lines of context around the cursor.  Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
-
-" Do incremental searching when it's possible to timeout.
-if has('reltime')
-  set incsearch
-endif
-
 " Do not recognize octal numbers for Ctrl-A and Ctrl-X, most users find it
 " confusing.
 set nrformats-=octal
@@ -22,18 +13,6 @@ set nrformats-=octal
 " Don't use Ex mode, use Q for formatting.
 " Revert with ":unmap Q".
 map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-" Revert with ":iunmap <C-U>".
-inoremap <C-U> <C-G>u<C-U>
-
-" Switch syntax highlighting on when the terminal has colors or when using the
-" GUI (which always has colors).
-if &t_Co > 2 || has("gui_running")
-  " Revert with ":syntax off".
-  syntax on
-endif
 
 " Only do this part when Vim was compiled with the +eval feature.
 if 1
@@ -45,8 +24,6 @@ if 1
   " Revert with ":filetype off".
   filetype plugin indent on
 
-  " Put these in an autocmd group, so that you can revert them with:
-  " ":augroup vimStartup | au! | augroup END"
   augroup vimStartup
     au!
 
@@ -61,15 +38,6 @@ if 1
 
   augroup END
 
-endif
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-" Revert with: ":delcommand DiffOrig".
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
 endif
 
 if has('langmap') && exists('+langremap')

@@ -64,6 +64,12 @@ set statusline+=\ [%{&ff}]\ " Add file format
 " Add the one dark color scheme
 packadd! onedark.vim
 colorscheme onedark
+" Switch syntax highlighting on when the terminal has colors or when using the
+" GUI (which always has colors).
+if &t_Co > 2 || has("gui_running")
+  " Revert with ":syntax off".
+  syntax on
+endif
 
 " Ale
 let g:ale_fixers = {
@@ -115,6 +121,9 @@ set updatetime=200
 set history=9999
 " How many times "u" can be pressed.
 set undolevels=9999
+
+" Attempts to always keep 5 lines above and below the cursor when scrolling or mouse clicking to a new line.
+set scrolloff=5
 
 " Add column with line numbers
 set number
@@ -172,6 +181,8 @@ inoremap jk <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" Start searching before pressing enter.
+set incsearch
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
