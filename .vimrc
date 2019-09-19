@@ -181,6 +181,12 @@ inoremap jk <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" Block arrow keys in normal mode.
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
 " Start searching before pressing enter.
 set incsearch
 if &t_Co > 2 || has("gui_running")
