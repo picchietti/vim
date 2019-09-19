@@ -127,7 +127,6 @@ set scrolloff=5
 
 " Add column with line numbers
 set number
-
 " Highlight current line number
 set cursorline
 hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
@@ -160,6 +159,11 @@ nnoremap <space> za
 set foldnestmax=6
 " How many lines of indent until code is auto folded when opening buffer
 set foldlevelstart=99
+
+" Max length before syntax highlighting is turned off.
+" If 500 is set, a line with 550 characters will only syntax highlight 500 characters.
+" Lowering this improves performance in files with long lines.
+set synmaxcol=500
 
 " Enable the mouse to position the cursor, visually select, and scroll.
 if has('mouse')
