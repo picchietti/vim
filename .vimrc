@@ -161,7 +161,7 @@ set foldnestmax=6
 " How many lines of indent until code is auto folded when opening buffer
 set foldlevelstart=99
 
-" Enable the mouse to position the cursor, visually select, and scroll with the mouse.
+" Enable the mouse to position the cursor, visually select, and scroll.
 if has('mouse')
   set mouse=a
 endif
