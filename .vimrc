@@ -191,6 +191,13 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Git shortcuts
+nnoremap ,gu :!git fetch && git pull<CR>
+nnoremap ,gb :!git switch<space>
+nnoremap ,gs :!git status<CR>
+nnoremap ,gc :!git commit -m ""<Left>
+nnoremap ,gp :!git push<CR>
+
 " Start searching before pressing enter.
 set incsearch
 if &t_Co > 2 || has("gui_running")
