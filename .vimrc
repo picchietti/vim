@@ -195,8 +195,22 @@ nnoremap <Down> :echoe "Use j"<CR>
 nnoremap ,gu :!git fetch && git pull<CR>
 nnoremap ,gb :!git switch<space>
 nnoremap ,gs :!git status<CR>
+nnoremap ,ga :!git add .<CR>
+nnoremap ,gd :!git checkout --<space>
 nnoremap ,gc :!git commit -m ""<Left>
 nnoremap ,gp :!git push<CR>
+nnoremap ,gl :!git log --graph --oneline --decorate --all<CR>
+nnoremap ,gh :echo "
+\Git shortcuts: \n
+\,gu - git update (fetches and pulls) \n
+\,gb - git branch (switch or create branches) \n
+\,gs - git status \n
+\,ga - git add (add all files to index) \n
+\,gd - git discard specified file \n
+\,gc - git commit \n
+\,gp - git push (current branch) \n
+\,gl - git log
+\"<CR>
 
 " Start searching before pressing enter.
 set incsearch

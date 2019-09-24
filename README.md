@@ -1,5 +1,5 @@
 # Vim
-I'm venturing into the world of vim. Until I can decide between vim and neovim, you might see support for both.
+I'm venturing into the world of vim. I'm currently favoring neovim, but you might see support for both.
 
 ## Installation
 ### Linux
@@ -24,14 +24,21 @@ git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/pack/plugins/star
 git clone https://github.com/joshdick/onedark.vim.git ~/.vim/pack/plugins/opt/onedark.vim
 ```
 
-### Linux
+### Linux Dependencies
 ```bash
-sudo apt install silversearcher-ag
+sudo apt install -y silversearcher-ag
+
+# install latest git (>=2.23.0)
+# used by ,gb for git switch
+sudo apt-add-repository ppa:git-core/ppa
+sudo apt update
+sudo apt install -y git
 ```
 
-### MacOS
+### MacOS Dependencies
 ```bash
 brew install the_silver_searcher
+brew install git
 ```
 
 ## Setup
