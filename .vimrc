@@ -170,6 +170,9 @@ if has('mouse')
   set mouse=a
 endif
 
+" Close search.
+nnoremap ,xs :noh<CR>
+
 " Make ,b run :ls and :b to show a list of buffers to select from with b
 nnoremap ,b :ls<CR>:b!<space>
 
