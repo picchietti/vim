@@ -11,6 +11,7 @@ source ~/git/vim/defaults.vim
 let g:modeMap={
 \ 'n': 'NORMAL',
 \ 'v': 'VISUAL',
+\ "\<C-V>": 'VISUAL-BLOCK',
 \ 'i': 'INSERT',
 \ 'R': 'REPLACE',
 \ 's': 'SELECT',
