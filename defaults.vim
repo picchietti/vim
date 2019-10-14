@@ -6,14 +6,6 @@
 " Show @@@ in the last line if it is truncated.
 set display=truncate
 
-" Do not recognize octal numbers for Ctrl-A and Ctrl-X, most users find it
-" confusing.
-set nrformats-=octal
-
-" Don't use Ex mode, use Q for formatting.
-" Revert with ":unmap Q".
-map Q gq
-
 " Only do this part when Vim was compiled with the +eval feature.
 if 1
 
