@@ -114,6 +114,11 @@ set swapfile
 " Changes location of swap file from the current directory.
 set directory=~/.vim/swap//
 
+" Turn off spell checking (default off).
+set nospell
+" The language used for spell checking, in this case English.
+set spelllang=en
+
 " Reload file if changed externally
 " Trigger autoread with ":checktime"
 set autoread
