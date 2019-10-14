@@ -109,7 +109,10 @@ set wildmenu
 " Dont backup to extra files
 set nobackup
 set nowritebackup
-set noswapfile
+" Persists unsaved changes to be recovered later if terminal or computer crashes
+set swapfile
+" Changes location of swap file from the current directory.
+set directory=~/.vim/swap//
 
 " Reload file if changed externally
 " Trigger autoread with ":checktime"
