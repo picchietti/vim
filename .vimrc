@@ -62,6 +62,12 @@ set statusline+=\ [%{b:gitbranch}] " Add git branch name
 set statusline+=\ %y " Add file type
 set statusline+=\ [%{&ff}]\ " Add file format
 
+" menuone: show autocomplete menu even when there is only 1 match
+" noinsert: dont insert text from a match until an autocomplete option is selected
+set completeopt+=menuone,noinsert
+" Turn on autocomplete plugin at startup
+let g:mucomplete#enable_auto_at_startup = 1
+
 " Add the one dark color scheme
 packadd! onedark.vim
 colorscheme onedark

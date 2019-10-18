@@ -29,6 +29,8 @@ git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/pack/plugins/star
 git clone https://github.com/joshdick/onedark.vim.git ~/.vim/pack/plugins/opt/onedark.vim
 # indent detection
 git clone https://github.com/Raimondi/yaifa.git ~/.vim/pack/plugins/start/yaifa
+# auto complete
+git clone https://github.com/lifepillar/vim-mucomplete.git ~/.vim/pack/plugins/start/mucomplete.vim
 ```
 
 ### Linux Dependencies
