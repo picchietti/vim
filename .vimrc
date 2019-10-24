@@ -164,6 +164,11 @@ set smarttab
 " Use indentation from current line for next line
 set autoindent
 
+" Show invisible characters
+set list
+" Set how certain invisible characters are shown
+set listchars=tab:>>,trail:-
+
 " Turn on code folding
 set foldenable
 " Fold by indentation. Also required for code folding
