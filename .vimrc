@@ -142,9 +142,9 @@ set scrolloff=5
 
 " Add column with line numbers
 set number
-" Highlight current line number
+" Highlight current line
 set cursorline
-hi CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+" Highlight current line number
 hi CursorLineNR cterm=bold
 
 " display partial commands
