@@ -98,6 +98,8 @@ nnoremap ,p :CtrlP<CR>
 nnoremap ,bb :CtrlPBuffer<CR>
 " Switch to the most recently used buffer
 nnoremap ,bs :b#<CR>
+" Allow unsaved buffers to be switched away from
+set hidden
 " If ag is installed, use it for CtrlP
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
