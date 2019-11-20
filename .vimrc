@@ -94,10 +94,25 @@ highlight ALEWarningSign ctermbg=NONE ctermfg=227
 
 " A faster way to open CtrlP
 nnoremap ,p :CtrlP<CR>
+" Display CtrlP buffer switcher. Alternative to :ls<CR>:b!<space>
+nnoremap ,bb :CtrlPBuffer<CR>
+" Switch to the most recently used buffer
+nnoremap ,bs :b#<CR>
 " If ag is installed, use it for CtrlP
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 endif
+" Dont use CtrlP's custom statusline
+let g:ctrlp_buffer_func = {
+  \ 'enter': 'RemoveCtrlPStatusLine',
+  \ 'exit': 'RestoreCtrlPStatusLine'
+\}
+function! RemoveCtrlPStatusLine()
+  set laststatus=0
+endfunction
+function! RestoreCtrlPStatusLine()
+  set laststatus=2
+endfunction
 
 " A faster way to open Ack
 nnoremap ,a :Ack!<space>
@@ -195,9 +210,6 @@ endif
 
 " Close search.
 nnoremap ,xs :noh<CR>
-
-" Make ,b run :ls and :b to show a list of buffers to select from with b
-nnoremap ,b :ls<CR>:b!<space>
 
 " Swap the behavior of p and P
 nnoremap p P
