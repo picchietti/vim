@@ -112,6 +112,9 @@ set backspace=indent,eol,start
 " display completion matches in a status line
 set wildmenu
 
+" modeline is vim configuration placed in files that vim opens. Disabled for security.
+set nomodeline
+
 " Dont backup to extra files
 set nobackup
 set nowritebackup
