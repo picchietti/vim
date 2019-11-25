@@ -95,9 +95,7 @@ highlight ALEWarningSign ctermbg=NONE ctermfg=227
 " A faster way to open CtrlP
 nnoremap ,p :CtrlP<CR>
 " Display CtrlP buffer switcher. Alternative to :ls<CR>:b!<space>
-nnoremap ,bb :CtrlPBuffer<CR>
-" Switch to the most recently used buffer
-nnoremap ,bs :b#<CR>
+nnoremap ,b :CtrlPBuffer<CR>
 " Allow unsaved buffers to be switched away from
 set hidden
 " If ag is installed, use it for CtrlP
