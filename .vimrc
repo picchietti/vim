@@ -97,6 +97,8 @@ highlight ALEWarningSign ctermbg=NONE ctermfg=227
 nnoremap ,p :CtrlP<CR>
 " Display CtrlP buffer switcher. Alternative to :ls<CR>:b!<space>
 nnoremap ,b :CtrlPBuffer<CR>
+" Clear CtrlP cache. Useful when files change outside of vim, such as with git.
+nnoremap ,xp :CtrlPClearAllCaches<CR>
 " Allow unsaved buffers to be switched away from
 set hidden
 " If ag is installed, use it for CtrlP
