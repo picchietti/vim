@@ -1,62 +1,25 @@
 # Vim
-I'm venturing into the world of vim. I'm currently favoring neovim, but you might see support for both.
+I'm venturing into the world of vim, for which I'm using neovim.
 
 ## Installation
-### Linux
+Clone this repo with your favorite git gui or use the terminal:
 ```bash
-sudo apt install -y vim
-sudo apt install -y neovim
+git clone https://github.com/picchietti/vim.git
 ```
 
-### MacOS
+Run the following bash script to install this vim setup:
 ```bash
-brew cask install macvim
-brew install neovim
+cd ~/git/vim # or wherever you cloned the repo to
+./setup
 ```
 
-## Dependencies/Plugins
-### Plugins
-```bash
-# fuzzy finder open files
-git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/pack/plugins/start/ctrlp.vim
-# search project
-git clone https://github.com/mileszs/ack.vim.git ~/.vim/pack/plugins/start/ack.vim
-# linting
-git clone https://github.com/dense-analysis/ale.git ~/.vim/pack/plugins/start/ale.vim
-# git diff indicator next to line number
-git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/pack/plugins/start/gitgutter.vim
-# color theme
-git clone https://github.com/joshdick/onedark.vim.git ~/.vim/pack/plugins/opt/onedark.vim
-# indent detection
-git clone https://github.com/Raimondi/yaifa.git ~/.vim/pack/plugins/start/yaifa
-# auto complete
-git clone https://github.com/lifepillar/vim-mucomplete.git ~/.vim/pack/plugins/start/mucomplete.vim
-```
+By default the setup script will:
+- auto update
+- install dependencies
+- install plugins
+- configure dot files
 
-### Linux Dependencies
-```bash
-sudo apt install -y silversearcher-ag
+You also have the option to run additional commands that can:
+- update plugins
 
-# install latest git (>=2.23.0)
-# used by ,gb for git switch
-sudo apt-add-repository ppa:git-core/ppa
-sudo apt update
-sudo apt install -y git
-```
-
-### MacOS Dependencies
-```bash
-brew install the_silver_searcher
-brew install git
-```
-
-## Setup
-Create a link from ~/.vimrc to git/vim/.vimrc
-```bash
-ln -sT ~/.vimrc ~/git/vim/.vimrc
-```
-For neovim:
-```bash
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
-```
+See `./setup help` for all commands.

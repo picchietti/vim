@@ -1,0 +1,184 @@
+#!/bin/bash
+
+SCRIPT_NAME="$0"
+SCRIPT_PATH=$(dirname "$SCRIPT_NAME")
+CWD=$(pwd)
+
+function error () {
+    tput setaf 1
+    echo "$@" 1>&2
+    tput sgr0
+    exit 1
+}
+
+function success () {
+    tput setaf 2
+    echo "$@"
+    tput sgr0
+}
+
+function warn () {
+    tput setaf 3
+    echo "$@"
+    tput sgr0
+}
+
+function auto_update () {
+    echo "Auto updating. Changes will be available next run."
+    cd $SCRIPT_PATH
+    git checkout master
+    git fetch --prune
+    git pull
+}
+
+function install_dependencies () {
+    echo "Installing $OSTYPE dependencies..."
+
+    if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        echo 'installing neovim...'
+        sudo apt install -y neovim
+
+        echo 'installing the silver searcher...'
+        sudo apt install -y silversearcher-ag
+
+        # used by ,gb for git switch
+        echo 'installing latest git (>=2.23.0)...'
+        sudo apt-add-repository ppa:git-core/ppa
+        sudo apt update
+        sudo apt install -y git
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        if ! [ -x "$(command -v brew)" ]; then
+            error "Error: brew is not installed but is required"
+        fi
+
+        echo 'installing the silver searcher...'
+        brew install the_silver_searcher
+
+        echo 'installing latest git (>=2.23.0)...'
+        brew install git
+    fi
+}
+
+function install_plugins () {
+    echo 'Installing plugins...'
+
+    mkdir -p ~/.vim/pack/plugins/start
+    mkdir -p ~/.vim/pack/plugins/opt
+
+    # fuzzy finder open files
+    git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/pack/plugins/start/ctrlp.vim
+    # search project
+    git clone https://github.com/mileszs/ack.vim.git ~/.vim/pack/plugins/start/ack.vim
+    # linting
+    git clone https://github.com/dense-analysis/ale.git ~/.vim/pack/plugins/start/ale.vim
+    # git diff indicator next to line number
+    git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/pack/plugins/start/gitgutter.vim
+    # color theme
+    git clone https://github.com/joshdick/onedark.vim.git ~/.vim/pack/plugins/opt/onedark.vim
+    # indent detection
+    git clone https://github.com/Raimondi/yaifa.git ~/.vim/pack/plugins/start/yaifa
+    # auto complete
+    git clone https://github.com/lifepillar/vim-mucomplete.git ~/.vim/pack/plugins/start/mucomplete.vim
+}
+
+function update_plugins () {
+    echo 'Updating plugins...'
+    cd ~/.vim/pack/plugins/start/ctrlp.vim
+    git fetch --prune
+    git pull
+
+    cd ~/.vim/pack/plugins/start/ack.vim
+    git fetch --prune
+    git pull
+
+    cd ~/.vim/pack/plugins/start/ale.vim
+    git fetch --prune
+    git pull
+
+    cd ~/.vim/pack/plugins/start/gitgutter.vim
+    git fetch --prune
+    git pull
+
+    cd ~/.vim/pack/plugins/opt/onedark.vim
+    git fetch --prune
+    git pull
+
+    cd ~/.vim/pack/plugins/start/yaifa
+    git fetch --prune
+    git pull
+
+    cd ~/.vim/pack/plugins/start/mucomplete.vim
+    git fetch --prune
+    git pull
+
+}
+
+function add_config () {
+    echo 'Adding configuration...'
+
+    grep -qF 'alias vim="nvim"' ~/.bashrc || { echo 'alias vim="nvim"' >> ~/.bashrc; added_config=true; }
+
+    ln -s ~/.vim ~/.config/nvim
+    ln -s $SCRIPT_PATH/.vimrc ~/.config/nvim/init.vim
+
+    if [ "$added_config" = true ]; then
+        warn "Configuration added"
+    else
+        echo "All configuration has already been added."
+    fi
+}
+
+function help () {
+    echo "Run commands by typing \"$SCRIPT_NAME command\""
+    echo -e "Available commands: \
+        \n- update\
+        \n- install_dependencies\
+        \n- install_plugins\
+        \n- update_plugins\
+        \n- add_config\
+        \n- help"
+}
+
+function main () {
+    auto_update
+
+    install_dependencies
+    install_plugins
+    add_config
+}
+
+for i in "$@"; do
+    case $i in
+        update)
+            auto_update
+            exit 0
+        ;;
+        install_dependencies)
+            install_dependencies
+            exit 0
+        ;;
+        install_plugins)
+            install_plugins
+            exit 0
+        ;;
+        add_config)
+            add_config
+            exit 0
+        ;;
+        update_plugins)
+            update_plugins
+            exit 0
+        ;;
+        help)
+            help
+            exit 0
+        ;;
+        *)
+            error "Unknown command \"$1\". Try: \"$SCRIPT_NAME help\""
+        ;;
+    esac
+done
+
+if [ $# -eq 0 ]; then
+    main
+fi
