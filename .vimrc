@@ -221,6 +221,9 @@ nnoremap ,xs :noh<CR>
 nnoremap p P
 nnoremap P p
 
+" U does redo instead of restore current line
+nnoremap U <C-r>
+
 " Escape insert mode by typing 'jk'
 inoremap jk <Esc>
 
