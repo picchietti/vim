@@ -99,8 +99,6 @@ nnoremap ,p :CtrlP<CR>
 nnoremap ,b :CtrlPBuffer<CR>
 " Clear CtrlP cache. Useful when files change outside of vim, such as with git.
 nnoremap ,xp :CtrlPClearAllCaches<CR>
-" Allow unsaved buffers to be switched away from
-set hidden
 " If ag is installed, use it for CtrlP
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
@@ -126,6 +124,11 @@ endif
 
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
+
+" Allow unsaved buffers to be switched away from
+set hidden
+" Prompt to save an unsaved buffer on close
+set confirm
 
 " display completion matches in a status line
 set wildmenu
