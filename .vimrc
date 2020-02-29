@@ -120,6 +120,9 @@ endfunction
 function! RestoreCtrlPStatusLine()
   set laststatus=2
 endfunction
+if argc() == 0
+  autocmd VimEnter * CtrlP
+endif
 
 " Project-wide find via EasyGrep
 nnoremap ,f :Grep<space>
