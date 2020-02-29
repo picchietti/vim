@@ -93,6 +93,13 @@ highlight ALEErrorSign ctermbg=NONE ctermfg=9
 highlight ALEWarning cterm=underline ctermbg=NONE ctermfg=227
 highlight ALEWarningSign ctermbg=NONE ctermfg=227
 
+" vim-gitgutter
+let g:gitgutter_sign_added = '▋'
+let g:gitgutter_sign_modified = '▋'
+let g:gitgutter_sign_removed = '▋'
+let g:gitgutter_sign_removed_first_line = '▋'
+let g:gitgutter_sign_modified_removed = '▋'
+
 " A faster way to open CtrlP
 nnoremap ,p :CtrlP<CR>
 " Display CtrlP buffer switcher. Alternative to :ls<CR>:b!<space>
