@@ -169,6 +169,8 @@ set scrolloff=5
 
 " Add column with line numbers
 set number
+" Make numbers relative to the current line for easy repetition
+set relativenumber
 " Highlight current line
 set cursorline
 " Highlight current line number
