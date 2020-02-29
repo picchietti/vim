@@ -139,6 +139,12 @@ set nowritebackup
 set swapfile
 " Changes location of swap file from the current directory.
 set directory=~/.vim/swap//
+" Auto-recover instead of prompt
+augroup AutomaticSwapRecoveryAndDelete
+  autocmd!
+  autocmd SwapExists * :let v:swapchoice = 'r' | let b:swapname = v:swapname
+  autocmd BufWinEnter * :if exists("b:swapname") | call delete(b:swapname) | unlet b:swapname | endif
+augroup end
 
 " Turn off spell checking (default off).
 set nospell
