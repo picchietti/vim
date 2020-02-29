@@ -285,9 +285,6 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" Words of affirmation
-autocmd BufWritePost * echo "Awesome contribution, Jon! You're a rockstar developer!"
-
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
