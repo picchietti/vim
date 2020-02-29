@@ -97,8 +97,6 @@ highlight ALEWarningSign ctermbg=NONE ctermfg=227
 nnoremap ,p :CtrlP<CR>
 " Display CtrlP buffer switcher. Alternative to :ls<CR>:b!<space>
 nnoremap ,b :CtrlPBuffer<CR>
-" Clear CtrlP cache. Useful when files change outside of vim, such as with git.
-nnoremap ,xp :CtrlPClearAllCaches<CR>
 " If ag is installed, use it for CtrlP
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
@@ -216,6 +214,10 @@ endif
 
 " Close search.
 nnoremap ,xs :noh<CR>
+" Clear CtrlP cache. Useful when files change outside of vim, such as with git.
+nnoremap ,xp :CtrlPClearAllCaches<CR>
+" Clear other buffers
+nnoremap ,xb :%bd\|e#\|bd#<CR>
 
 " Swap the behavior of p and P
 nnoremap p P
