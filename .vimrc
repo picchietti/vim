@@ -113,12 +113,10 @@ function! RestoreCtrlPStatusLine()
   set laststatus=2
 endfunction
 
-" A faster way to open Ack
-nnoremap ,a :Ack!<space>
-" If ag is installed, use it for ack.vim
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" Project-wide find via EasyGrep
+nnoremap ,f :Grep<space>
+" Project-wide replace via EasyGrep
+nnoremap ,r :Replace<space>
 
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start

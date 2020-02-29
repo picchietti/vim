@@ -67,8 +67,8 @@ function install_plugins () {
 
     # fuzzy finder open files
     git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/pack/plugins/start/ctrlp.vim
-    # search project
-    git clone https://github.com/mileszs/ack.vim.git ~/.vim/pack/plugins/start/ack.vim
+    # project-wide find/replace
+    git clone https://github.com/dkprice/vim-easygrep.git ~/.vim/pack/plugins/start/easygrep.vim
     # linting
     git clone https://github.com/dense-analysis/ale.git ~/.vim/pack/plugins/start/ale.vim
     # git diff indicator next to line number
@@ -87,7 +87,7 @@ function update_plugins () {
     git fetch --prune
     git pull
 
-    cd ~/.vim/pack/plugins/start/ack.vim
+    cd ~/.vim/pack/plugins/start/easygrep.vim
     git fetch --prune
     git pull
 
