@@ -4,9 +4,6 @@ if &compatible
   set nocompatible
 endif
 
-" https://github.com/vim/vim/blob/master/runtime/defaults.vim
-source ~/git/vim/defaults.vim
-
 " Map mode
 let g:modeMap={
 \ 'n': 'NORMAL',
@@ -120,6 +117,7 @@ endfunction
 function! RestoreCtrlPStatusLine()
   set laststatus=2
 endfunction
+" Auto-load ctrlp if vim wasnt opened with file
 if argc() == 0
   autocmd VimEnter * CtrlP
 endif
@@ -161,6 +159,8 @@ augroup end
 set nospell
 " The language used for spell checking, in this case English.
 set spelllang=en
+" Prevent that the langmap option applies to characters that result from a mapping
+set nolangremap
 
 " Reload file if changed externally
 " Trigger autoread with ":checktime"
@@ -202,11 +202,18 @@ set expandtab
 set smarttab
 " Use indentation from current line for next line
 set autoindent
+" Load indent files to automatically do language-dependent indenting.
+filetype plugin indent on
+
 
 " Show invisible characters
 set list
 " Set how certain invisible characters are shown
 set listchars=tab:>>,trail:-
+" Show @@@ in the last line if it is truncated.
+set display=truncate
+" Add unix standard line at end of file if not already present (default on)
+set fixendofline
 
 " Turn on code folding
 set foldenable
@@ -288,3 +295,15 @@ endif
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+augroup vimStartup
+  au!
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid, when inside an event handler
+  " (happens when dropping a file on gvim) and for a commit message (it's
+  " likely a different one than last time).
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
+augroup END
