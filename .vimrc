@@ -258,6 +258,19 @@ inoremap jk <Esc>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+function! GoHome()
+  let x = col('.')
+  execute "normal ^"
+
+  if x == col('.')
+    execute "normal 0"
+  endif
+endfunction
+" Go to beginning of text/line instead of 'high' portion of page
+nnoremap <silent> H :call GoHome()<CR>
+" Go to end of line instead of 'low' portion of page
+nnoremap L $
+
 " Block arrow keys in normal mode.
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
