@@ -69,6 +69,8 @@ let g:mucomplete#enable_auto_at_startup = 1
 " Add the one dark color scheme
 packadd! onedark.vim
 colorscheme onedark
+" 24-bit true color
+set termguicolors
 " Switch syntax highlighting on when the terminal has colors or when using the
 " GUI (which always has colors).
 if &t_Co > 2 || has("gui_running")
@@ -85,10 +87,10 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
-highlight ALEError cterm=underline ctermbg=NONE ctermfg=9
-highlight ALEErrorSign ctermbg=NONE ctermfg=9
-highlight ALEWarning cterm=underline ctermbg=NONE ctermfg=227
-highlight ALEWarningSign ctermbg=NONE ctermfg=227
+highlight ALEError guibg=NONE guifg=Red
+highlight ALEErrorSign guibg=NONE guifg=Red
+highlight ALEWarning guibg=NONE guifg=Yellow
+highlight ALEWarningSign guibg=NONE guifg=Yellow
 
 " vim-gitgutter
 let g:gitgutter_sign_added = '▋'
