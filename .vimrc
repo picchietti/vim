@@ -38,6 +38,12 @@ function! StatuslineGitBranch()
   let b:gitbranch = strlen(b:gitbranch) > 0?b:gitbranch:''
 endfunction
 
+function! StatuslineGitDiffCount()
+  let [a,r,m] = GitGutterGetHunkSummary()
+  return a + r + m == 0 ? '' : printf(' [+%d -%d ~%d]', a, r, m)
+endfunction
+set statusline+=%{GitStatus()}
+
 augroup GetGitBranch
   autocmd!
   autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
@@ -57,6 +63,7 @@ set statusline+=%{LinterStatus()} " Add linter status
 set statusline+=\ %l:%c " Add line:column position
 set statusline+=%= " Push content right
 set statusline+=\ [%{b:gitbranch}] " Add git branch name
+set statusline+=%{StatuslineGitDiffCount()} " Add git diff counts
 set statusline+=\ %y " Add file type
 set statusline+=\ [%{&ff}]\ " Add file format
 
