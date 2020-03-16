@@ -111,9 +111,11 @@ nnoremap ,p :CtrlP<CR>
 " Display CtrlP buffer switcher. Alternative to :ls<CR>:b!<space>
 nnoremap ,b :CtrlPBuffer<CR>
 let g:ctrlp_match_window = 'min:1,max:12'
-" If ag is installed, use it for CtrlP
 if executable('ag')
+  " If ag is installed, use it for CtrlP
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+  " ag is fast enough that CtrlP caching is necessary
+  let g:ctrlp_use_caching = 0
 endif
 " Dont use CtrlP's custom statusline
 let g:ctrlp_buffer_func = {
@@ -247,8 +249,6 @@ endif
 
 " Close search.
 nnoremap ,xs :noh<CR>
-" Clear CtrlP cache. Useful when files change outside of vim, such as with git.
-nnoremap ,xp :CtrlPClearAllCaches<CR>
 " Clear other buffers
 nnoremap ,xb :%bd\|e#\|bd#<CR>
 
