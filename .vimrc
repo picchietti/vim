@@ -137,6 +137,18 @@ endif
 nnoremap ,f :Grep<space>
 " Project-wide replace via EasyGrep
 nnoremap ,r :Replace<space>
+" default EasyGrep to ignore case sensitivity
+let g:EasyGrepIgnoreCase = 1
+" avoid buffer of first match being opened
+let g:EasyGrepJumpToMatch = 0
+" files beginning with '.' will be searched
+let g:EasyGrepHidden = 1
+" Use :grep which uses external program specified in grepprg
+let g:EasyGrepCommand = 1
+" use the silver searcher for :grep if installed
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
 
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
