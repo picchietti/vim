@@ -35,7 +35,10 @@ function install_dependencies () {
     echo "Installing $OSTYPE dependencies..."
 
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
-        echo 'installing neovim...'
+        echo 'updating package lists...'
+        sudo apt update
+
+        echo 'installing neovim from apt...'
         sudo apt install -y neovim
 
         echo 'installing the silver searcher...'
@@ -79,6 +82,8 @@ function install_plugins () {
     git clone --depth 1 https://github.com/Raimondi/yaifa.git ~/.vim/pack/plugins/start/yaifa
     # auto complete
     git clone --depth 1 https://github.com/lifepillar/vim-mucomplete.git ~/.vim/pack/plugins/start/mucomplete.vim
+    # color highlighter
+    git clone --depth 1 https://github.com/norcalli/nvim-colorizer.lua.git ~/.vim/pack/plugins/start/nvim-colorizer.vim
 }
 
 function update_plugins () {

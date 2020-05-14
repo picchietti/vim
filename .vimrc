@@ -85,6 +85,9 @@ if &t_Co > 2 || has("gui_running")
   syntax on
 endif
 
+" nvim-colorizer
+autocmd BufRead * execute(":ColorizerAttachToBuffer")
+
 " Ale
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
