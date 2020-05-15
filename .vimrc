@@ -85,8 +85,10 @@ if &t_Co > 2 || has("gui_running")
   syntax on
 endif
 
-" nvim-colorizer
-autocmd BufRead * execute(":ColorizerAttachToBuffer")
+if has('nvim-0.4.3')
+  " nvim-colorizer
+  autocmd BufRead * execute(":ColorizerAttachToBuffer")
+endif
 
 " Ale
 let g:ale_fixers = {
