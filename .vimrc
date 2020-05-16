@@ -42,7 +42,6 @@ function! StatuslineGitDiffCount()
   let [a,r,m] = GitGutterGetHunkSummary()
   return a + r + m == 0 ? '' : printf(' [+%d -%d ~%d]', a, r, m)
 endfunction
-set statusline+=%{GitStatus()}
 
 augroup GetGitBranch
   autocmd!
@@ -64,8 +63,7 @@ set statusline+=\ %l:%c " Add line:column position
 set statusline+=%= " Push content right
 set statusline+=\ [%{b:gitbranch}] " Add git branch name
 set statusline+=%{StatuslineGitDiffCount()} " Add git diff counts
-set statusline+=\ %y " Add file type
-set statusline+=\ [%{&ff}]\ " Add file format
+set statusline+=\ %y\ " Add file type
 
 " menuone: show autocomplete menu even when there is only 1 match
 " noinsert: dont insert text from a match until an autocomplete option is selected
@@ -240,6 +238,8 @@ set list
 set listchars=tab:>>,trail:-
 " Show @@@ in the last line if it is truncated.
 set display=truncate
+" Expect unix (LF) line terminators. 
+set fileformat=unix
 " Add unix standard line at end of file if not already present (default on)
 set fixendofline
 
