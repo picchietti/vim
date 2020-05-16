@@ -117,7 +117,7 @@ let g:ctrlp_match_window = 'min:1,max:12'
 if executable('ag')
   " If ag is installed, use it for CtrlP
   let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-  " ag is fast enough that CtrlP caching is necessary
+  " ag is fast enough that CtrlP caching is not necessary
   let g:ctrlp_use_caching = 0
 endif
 " Dont use CtrlP's custom statusline
@@ -189,7 +189,7 @@ set spelllang=en
 set nolangremap
 
 " Reload file if changed externally
-" Trigger autoread with ":checktime"
+" Trigger autoread with ':checktime'
 set autoread
 
 " Trigger CursorHold after 200ms instead of 4s. Updates things like GitGutter at a reasonable rate.
@@ -197,7 +197,7 @@ set updatetime=200
 
 " How many lines of command line history to keep.
 set history=9999
-" How many times "u" can be pressed.
+" How many times 'u' can be pressed.
 set undolevels=9999
 
 " Attempts to always keep 5 lines above and below the cursor when scrolling or mouse clicking to a new line.
