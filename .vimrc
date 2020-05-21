@@ -112,7 +112,7 @@ let g:gitgutter_sign_removed_first_line = '▋'
 let g:gitgutter_sign_modified_removed = '▋'
 
 " A faster way to open CtrlP
-nnoremap <leader>p :CtrlP<CR>
+let g:ctrlp_map = '<leader>p'
 " Display CtrlP buffer switcher. Alternative to :ls<CR>:b!<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_match_window = 'min:1,max:12'
@@ -240,7 +240,7 @@ set list
 set listchars=tab:>>,trail:-
 " Show @@@ in the last line if it is truncated.
 set display=truncate
-" Expect unix (LF) line terminators. 
+" Expect unix (LF) line terminators.
 set fileformat=unix
 " Add unix standard line at end of file if not already present (default on)
 set fixendofline
