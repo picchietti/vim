@@ -18,6 +18,8 @@ let g:modeMap={
 \ '!': 'SHELL',
 \}
 
+let mapleader=","
+
 let b:gitbranch=""
 
 function! LinterStatus() abort
@@ -110,9 +112,9 @@ let g:gitgutter_sign_removed_first_line = '▋'
 let g:gitgutter_sign_modified_removed = '▋'
 
 " A faster way to open CtrlP
-nnoremap ,p :CtrlP<CR>
+nnoremap <leader>p :CtrlP<CR>
 " Display CtrlP buffer switcher. Alternative to :ls<CR>:b!<space>
-nnoremap ,b :CtrlPBuffer<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_match_window = 'min:1,max:12'
 if executable('ag')
   " If ag is installed, use it for CtrlP
@@ -137,9 +139,9 @@ if argc() == 0
 endif
 
 " Project-wide find via EasyGrep
-nnoremap ,f :Grep<space>
+nnoremap <leader>f :Grep<space>
 " Project-wide replace via EasyGrep
-nnoremap ,r :Replace<space>
+nnoremap <leader>r :Replace<space>
 " default EasyGrep to ignore case sensitivity
 let g:EasyGrepIgnoreCase = 1
 " avoid buffer of first match being opened
@@ -265,9 +267,9 @@ if has('mouse')
 endif
 
 " Close search.
-nnoremap ,xs :noh<CR>
+nnoremap <leader>xs :noh<CR>
 " Clear other buffers
-nnoremap ,xb :%bd\|e#\|bd#<CR>
+nnoremap <leader>xb :%bd\|e#\|bd#<CR>
 
 " Swap the behavior of p and P
 nnoremap p P
@@ -304,24 +306,24 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 " Git shortcuts
-nnoremap ,gu :!git fetch && git pull<CR>
-nnoremap ,gb :!git switch<space>
-nnoremap ,gs :!git status<CR>
-nnoremap ,ga :!git add .<CR>
-nnoremap ,gd :!git checkout --<space>
-nnoremap ,gc :!git commit -m ""<Left>
-nnoremap ,gp :!git push<CR>
-nnoremap ,gl :!git log --graph --oneline --decorate --all<CR>
-nnoremap ,gh :echo "
+nnoremap <leader>gu :!git fetch && git pull<CR>
+nnoremap <leader>gb :!git switch<space>
+nnoremap <leader>gs :!git status<CR>
+nnoremap <leader>ga :!git add .<CR>
+nnoremap <leader>gd :!git checkout --<space>
+nnoremap <leader>gc :!git commit -m ""<Left>
+nnoremap <leader>gp :!git push<CR>
+nnoremap <leader>gl :!git log --graph --oneline --decorate --all<CR>
+nnoremap <leader>gh :echo "
 \Git shortcuts: \n
-\,gu - git update (fetches and pulls) \n
-\,gb - git branch (switch or create branches) \n
-\,gs - git status \n
-\,ga - git add (add all files to index) \n
-\,gd - git discard specified file \n
-\,gc - git commit \n
-\,gp - git push (current branch) \n
-\,gl - git log
+\<leader>gu - git update (fetches and pulls) \n
+\<leader>gb - git branch (switch or create branches) \n
+\<leader>gs - git status \n
+\<leader>ga - git add (add all files to index) \n
+\<leader>gd - git discard specified file \n
+\<leader>gc - git commit \n
+\<leader>gp - git push (current branch) \n
+\<leader>gl - git log
 \"<CR>
 
 " Start searching before pressing enter.
