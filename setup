@@ -34,6 +34,10 @@ function auto_update () {
 function install_dependencies () {
     echo "Installing $OSTYPE dependencies..."
 
+    # check with :checkhealth
+    echo "installing nodejs provider..."
+    sudo npm install -g neovim
+
     if [[ "$OSTYPE" == "linux-gnu" ]]; then
         echo 'updating package lists...'
         sudo apt update
