@@ -116,6 +116,9 @@ function update_plugins () {
     git fetch --prune
     git pull
 
+    cd ~/.vim/pack/plugins/start/nvim-colorizer.vim
+    git fetch --prune
+    git pull
 }
 
 function add_config () {
