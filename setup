@@ -88,6 +88,8 @@ function install_plugins () {
     git clone --depth 1 https://github.com/lifepillar/vim-mucomplete.git ~/.vim/pack/plugins/start/mucomplete.vim
     # color highlighter
     git clone --depth 1 https://github.com/norcalli/nvim-colorizer.lua.git ~/.vim/pack/plugins/start/nvim-colorizer.vim
+    # toggle comments
+    git clone --depth 1 https://github.com/tpope/vim-commentary.git ~/.vim/pack/plugins/start/vim-commentary.vim
 }
 
 function update_plugins () {
@@ -121,6 +123,10 @@ function update_plugins () {
     git pull
 
     cd ~/.vim/pack/plugins/start/nvim-colorizer.vim
+    git fetch --prune
+    git pull
+
+    cd ~/.vim/pack/plugins/start/vim-commentary.vim
     git fetch --prune
     git pull
 }
