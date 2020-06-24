@@ -86,8 +86,8 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 if has('nvim-0.4.3')
-  " nvim-colorizer
-  autocmd BufRead * execute(":ColorizerAttachToBuffer")
+  " Tells nvim-colorizer to parse specific filetypes
+  autocmd FileType css,sass,vim execute(":ColorizerAttachToBuffer")
 endif
 
 " Ale
