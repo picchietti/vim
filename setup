@@ -140,6 +140,8 @@ function update_plugins () {
 function add_config () {
     echo 'Adding configuration...'
 
+    git config --global core.editor "vim"
+
     grep -qF 'alias vim="nvim"' ~/.bashrc || { echo 'alias vim="nvim"' >> ~/.bashrc; added_config=true; }
 
     ln -s ~/.vim ~/.config/nvim
