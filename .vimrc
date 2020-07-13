@@ -333,10 +333,6 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
-
 augroup vimStartup
   au!
   " When editing a file, always jump to the last known cursor position.
