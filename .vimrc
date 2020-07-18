@@ -26,12 +26,12 @@ function! LinterStatus() abort
   let l:counts = ale#statusline#Count(bufnr(''))
 
   let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
+  let l:all_warnings = l:counts.warning + l:counts.style_warning
 
   return l:counts.total == 0 ? '' : printf(
   \  ' [✗ %d ⚠ %d]',
   \  all_errors,
-  \  all_non_errors
+  \  all_warnings
   \)
 endfunction
 
