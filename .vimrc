@@ -103,6 +103,36 @@ highlight ALEError guibg=NONE guifg=Red
 highlight ALEErrorSign guibg=NONE guifg=Red
 highlight ALEWarning guibg=NONE guifg=Yellow
 highlight ALEWarningSign guibg=NONE guifg=Yellow
+let g:keyboard_saved = 0
+function! ChangeKeyboardFromLint() abort
+  if g:keyboard_saved == 0
+    let g:keyboard_saved = 1
+    call system("~/git/vim/keyboard/save")
+  endif
+
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_warnings = l:counts.warning + l:counts.style_warning
+
+  if l:all_errors != 0
+    call system("~/git/vim/keyboard/set-error")
+  elseif l:all_warnings != 0
+    call system("~/git/vim/keyboard/set-warning")
+  else
+    call system("~/git/vim/keyboard/restore")
+  endif
+endfunction
+" If using a system76 laptop with rgb and you chmod or chown it to be writable
+if filewritable("/sys/devices/LNXSYSTM:00/LNXSYBUS:00/17761776:00/leds/system76_acpi::kbd_backlight/color")
+  augroup ALEKeyboard
+    autocmd!
+    autocmd User ALELintPost call ChangeKeyboardFromLint()
+    autocmd BufEnter * call ChangeKeyboardFromLint()
+    autocmd VimLeavePre * call system("~/git/vim/keyboard/restore")
+  augroup end
+elseif filereadable("/sys/devices/LNXSYSTM:00/LNXSYBUS:00/17761776:00/leds/system76_acpi::kbd_backlight/color")
+  echomsg "Warning: Keyboard color file not writable, disabling keyboard linter integration."
+endif
 
 " vim-gitgutter
 let g:gitgutter_sign_added = '▋'

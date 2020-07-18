@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat /sys/devices/LNXSYSTM:00/LNXSYBUS:00/17761776:00/leds/system76_acpi::kbd_backlight/color > ~/git/vim/keyboard/saved-color

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+file=/sys/devices/LNXSYSTM:00/LNXSYBUS:00/17761776:00/leds/system76_acpi::kbd_backlight/color
+color=$(<$file)
+saved_color=$(<~/git/vim/keyboard/saved-color)
+
+if [[ $saved_color != $color ]]; then
+    echo $saved_color > $file
+fi

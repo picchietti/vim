@@ -1,0 +1,8 @@
+#!/bin/bash
+
+file=/sys/devices/LNXSYSTM:00/LNXSYBUS:00/17761776:00/leds/system76_acpi::kbd_backlight/color
+color=$(<$file)
+
+if [[ $color != "FFFF00" ]]; then
+    echo "FFFF00" > $file
+fi
