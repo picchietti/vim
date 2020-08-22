@@ -59,9 +59,9 @@ set statusline=
 " Build the custom status line
 set statusline+=\ %m " Add modified status
 set statusline+=\ [%{g:modeMap[mode()]}] " Add mode
-set statusline+=\ [%f] " Add file name
 set statusline+=%{LinterStatus()} " Add linter status
 set statusline+=\ [L%l\ C%c] " Add line and column position
+set statusline+=\ [%f] " Add file name
 set statusline+=%= " Push content right
 set statusline+=\ [%{b:gitbranch}] " Add git branch name
 set statusline+=%{StatuslineGitDiffCount()} " Add git diff counts
