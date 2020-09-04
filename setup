@@ -45,8 +45,8 @@ function install_dependencies () {
         echo 'installing neovim from apt...'
         sudo apt install -y neovim
 
-        echo 'installing the silver searcher...'
-        sudo apt install -y silversearcher-ag
+        echo 'installing ripgrep...'
+        sudo apt install -y ripgrep
 
         # used by ,gb for git switch
         echo 'installing latest git (>=2.23.0)...'
@@ -58,8 +58,8 @@ function install_dependencies () {
             error "Error: brew is not installed but is required"
         fi
 
-        echo 'installing the silver searcher...'
-        brew install the_silver_searcher
+        echo 'installing ripgrep...'
+        brew install ripgrep
 
         echo 'installing latest git (>=2.23.0)...'
         brew install git

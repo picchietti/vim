@@ -146,10 +146,10 @@ let g:ctrlp_map = '<leader>p'
 " Display CtrlP buffer switcher. Alternative to :ls<CR>:b!<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_match_window = 'min:1,max:12'
-if executable('ag')
-  " If ag is installed, use it for CtrlP
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-  " ag is fast enough that CtrlP caching is not necessary
+if executable('rg')
+  " If rg is installed, use it for CtrlP
+  let g:ctrlp_user_command = 'rg %s --files --hidden --color=never'
+  " rg is fast enough that CtrlP caching is not necessary
   let g:ctrlp_use_caching = 0
 endif
 " Dont use CtrlP's custom statusline
@@ -180,9 +180,9 @@ let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepHidden = 1
 " Use :grep which uses external program specified in grepprg
 let g:EasyGrepCommand = 1
-" use the silver searcher for :grep if installed
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+" use ripgrep for :grep if installed
+if executable('rg')
+  set grepprg=rg\ --no-heading\ --vimgrep
 endif
 
 " Allow backspacing over everything in insert mode.
